@@ -46,7 +46,12 @@ class WPSWS_Settings {
 	 * Enqueue scripts
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( 'wpw-admin', plugin_dir_url( WPSWS_PLUGIN_FILE ) . '/assets/js/wpw-admin.js', array( 'jquery' ), '1.0.0' );
+		if ( ! SCRIPT_DEBUG ) {
+			wp_enqueue_script( 'wpw-admin', plugin_dir_url( WPSWS_PLUGIN_FILE ) . '/assets/js/wpw-admin.js', array( 'jquery' ), '1.0.0' );
+		}else {
+			wp_enqueue_script( 'wpw-admin', plugin_dir_url( WPSWS_PLUGIN_FILE ) . '/assets/js/wpw-admin.orig.js', array( 'jquery' ), '1.0.0' );
+		}
+
 	}
 
 	/**
