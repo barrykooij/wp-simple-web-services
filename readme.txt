@@ -31,7 +31,7 @@ At this moment the WP Simple Web Service plugin only provides REST JSON GET call
 
 Yes, it does.
 
-= Does WP Simple Web Service supports meta fields? =
+= Does WP Simple Web Service supports (custom) meta fields? =
 
 Yes, it does.
 
