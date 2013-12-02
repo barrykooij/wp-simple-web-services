@@ -110,7 +110,16 @@ class WPSWS_Webservice_get_posts {
 
 			// Add regular post fields data array
 			foreach ( $pt_options['fields'] as  $show_post_data_field ) {
-				$data[ $show_post_data_field ] = $post->$show_post_data_field;
+
+				$post_field_value = $post->$show_post_data_field;
+
+				// Fetch thumbnail
+				if( 'thumbnail' == $show_post_data_field ) {
+					$post_field_value = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+				}
+
+				// Set post field value
+				$data[ $show_post_data_field ] = $post_field_value;
 			}
 
 			// Add post meta fields to data array
