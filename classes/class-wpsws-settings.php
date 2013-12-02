@@ -39,7 +39,7 @@ class WPSWS_Settings {
 	 * Add menu pages
 	 */
 	public function add_menu_pages() {
-		add_menu_page( 'Overview', 'Web Services', 'manage_options', 'wpw', array( $this, 'screen_main' ), 'div' );
+		add_menu_page( 'Overview', 'Web Services', 'manage_options', 'wpw', array( $this, 'screen_main' ) );
 	}
 
 	/**
