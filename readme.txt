@@ -1,4 +1,4 @@
-=== What The File ===
+=== WP Simple Web Services ===
 Contributors: barrykooij
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q7QDZTLCRKSMG
 Tags: webservice, web service, JSON, REST
