@@ -162,6 +162,10 @@ class WPSWS_Webservice_get_posts {
 
 					echo "<label for='enable_{$key}'><input type='checkbox' name='enabled' class='wpw_enabled' id='enable_{$key}' " . ( ( 'true' == $pt_options['enabled'] ) ? "checked='checked' " : "" ) . "/> " . __( 'Enable post type', 'wpw' ) . "</label><br/><br/>\n";
 
+					echo "<b>Web Service URL:</b><br/>";
+					echo '<input type="text" name="webservice_url" value="' . get_site_url() . '/webservice/get_posts/?post_type=' . $key . '" disabled="disabled" style="width:100%;" />';
+					echo "<br/><br/>";
+
 					// Default fields
 					echo "<b>" . __( 'Enable fields', 'wpw' ). ":</b><br/>\n";
 					foreach ( $post_type_supports as $post_type_field => $post_type_label ) {
