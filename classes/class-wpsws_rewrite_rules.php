@@ -47,7 +47,7 @@ class WPSWS_Rewrite_Rules {
 
 		$rules = get_option( 'rewrite_rules' );
 
-		if ( ! isset( $rules[ WP_Simple_Web_Service::WEBSERVICE_REWRITE ] ) ) {
+		if ( ! isset( $rules[WP_Simple_Web_Service::WEBSERVICE_REWRITE] ) ) {
 			global $wp_rewrite;
 			$wp_rewrite->flush_rules();
 		}
@@ -63,8 +63,8 @@ class WPSWS_Rewrite_Rules {
 	 */
 	public function add_rewrite_rule( $rules ) {
 
-		$newrules = array();
-		$newrules[ WP_Simple_Web_Service::WEBSERVICE_REWRITE ] = 'index.php?webservice=1&service=$matches[1]';
+		$newrules                                            = array();
+		$newrules[WP_Simple_Web_Service::WEBSERVICE_REWRITE] = 'index.php?webservice=1&service=$matches[1]';
 
 		return $newrules + $rules;
 

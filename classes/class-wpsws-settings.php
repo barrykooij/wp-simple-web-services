@@ -48,7 +48,8 @@ class WPSWS_Settings {
 	public function enqueue_scripts() {
 		if ( ! SCRIPT_DEBUG ) {
 			wp_enqueue_script( 'wpw-admin', plugin_dir_url( WPSWS_PLUGIN_FILE ) . '/assets/js/wpw-admin.js', array( 'jquery' ), '1.0.0' );
-		}else {
+		}
+		else {
 			wp_enqueue_script( 'wpw-admin', plugin_dir_url( WPSWS_PLUGIN_FILE ) . '/assets/js/wpw-admin.orig.js', array( 'jquery' ), '1.0.0' );
 		}
 
@@ -77,10 +78,10 @@ class WPSWS_Settings {
 		$custom = explode( ',', $_POST['custom'] );
 
 		// Update options
-		$options['get_posts'][ $_POST['post_type'] ] = array(
+		$options['get_posts'][$_POST['post_type']] = array(
 			'enabled' => $_POST['enabled'],
-			'fields'	=> $fields,
-			'custom'	=> $custom
+			'fields'  => $fields,
+			'custom'  => $custom
 		);
 
 		// Save webservice
@@ -93,9 +94,10 @@ class WPSWS_Settings {
 	 * The main screen
 	 */
 	public function screen_main() {
-	?>
+		?>
 		<div class="wrap" id="wpw-wrap">
 			<h2>WordPress Simple Web Services</h2>
+
 			<div>
 				<p><?php _e( 'Welcome to WordPress Simple Web Services! You can enable post types by clicking the "Enable post type" checkbox below. If you encounter problems or find any bugs please report hem on <a href="https://github.com/barrykooij/wp-simple-web-services/issues" target="_blank">GitHub</a>.', 'wpsws' ); ?></p>
 				<?php do_action( 'wpsws_general_settings' ); ?>
