@@ -45,5 +45,5 @@ Of course! Simply hook into 'wpsws_general_settings' and display your custom set
 
 == Changelog ==
 
-= 0.9.0 =
+= 1.0.0 =
 * Initial release
