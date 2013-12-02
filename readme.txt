@@ -39,6 +39,10 @@ Yes, it does.
 
 Yes, you can. Simply add an action to wpsws_webservice_YOUR-WEB-SERVICE and replace 'YOUR-WEB-SERVICE' with your own web service name. This webservice will now be called when you visit URL/webservice/YOUR-WEB-SERVICE/
 
+= Can I also add my own settings to the WP Simple Web Service settings screen ? =
+
+Of course! Simply hook into 'wpsws_general_settings' and display your custom settings.
+
 == Changelog ==
 
 = 0.9.0 =
