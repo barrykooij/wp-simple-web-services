@@ -3,7 +3,7 @@
 Plugin Name: WP Simple Web Services
 Plugin URI: http://www.barrykooij.com/
 Description: Simple WordPress Rest Web Services. Add JSON REST web services to your WordPress website with a few clicks.
-Version: 1.0.0
+Version: 0.9
 Author: Barry Kooij
 Author URI: http://www.barrykooij.com/
 */
