@@ -3,9 +3,26 @@
 Plugin Name: WP Simple Web Services
 Plugin URI: http://www.barrykooij.com/
 Description: Simple WordPress Rest Web Services. Add JSON REST web services to your WordPress website with a few clicks.
-Version: 0.9
+Version: 1.0.0
 Author: Barry Kooij
 Author URI: http://www.barrykooij.com/
+License: GPL v3
+
+WP Simple Web Services
+Copyright (C) 2013, Barry Kooij - barry@cageworks.nl
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 if ( ! defined( 'WPSWS_PLUGIN_DIR' ) ) {
@@ -22,8 +39,8 @@ if ( ! defined( 'WPSWS_PLUGIN_FILE' ) ) {
  */
 class WP_Simple_Web_Service {
 
-	const WEBSERVICE_REWRITE 	= 'webservice/([a-zA-Z0-9_-]+)$';
-	const OPTION_KEY					= 'wpw_options';
+	const WEBSERVICE_REWRITE = 'webservice/([a-zA-Z0-9_-]+)$';
+	const OPTION_KEY         = 'wpw_options';
 
 	private static $instance = null;
 
@@ -68,7 +85,8 @@ class WP_Simple_Web_Service {
 
 			require_once( WPSWS_PLUGIN_DIR . 'classes/class-wpsws-settings.php' );
 
-		} else {
+		}
+		else {
 			// Frondend
 
 			require_once( WPSWS_PLUGIN_DIR . 'classes/class-wpsws-catch-request.php' );
@@ -94,7 +112,8 @@ class WP_Simple_Web_Service {
 			// Setup settings
 			WPSWS_Settings::get();
 
-		} else {
+		}
+		else {
 			// Frondend
 
 			// Catch request
@@ -109,7 +128,7 @@ class WP_Simple_Web_Service {
 	 * @param $error_string
 	 */
 	public function throw_error( $error_string ) {
-		wp_die( '<b>Webservice error:</b> '. $error_string );
+		wp_die( '<b>Webservice error:</b> ' . $error_string );
 	}
 
 	/**
@@ -142,4 +161,6 @@ function WP_Simple_Web_Service() {
 }
 
 // Load plugin
-add_action( 'plugins_loaded', function () { WP_Simple_Web_Service::get(); } );
+add_action( 'plugins_loaded', function () {
+	WP_Simple_Web_Service::get();
+} );

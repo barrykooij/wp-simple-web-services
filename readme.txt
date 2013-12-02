@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: webservice, web service, JSON, REST
 Requires at least: 3.1
 Tested up to: 3.7.1
-Stable tag: 0.9.0
+Stable tag: 1.0.0
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
