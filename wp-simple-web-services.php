@@ -171,8 +171,7 @@ function WP_Simple_Web_Service() {
 }
 
 // Load plugin
-add_action( 'plugins_loaded', function () {
-	WP_Simple_Web_Service::get();
-} );
+add_action( 'plugins_loaded', create_function( '', 'WP_Simple_Web_Service::get();' ) );
 
+// Install hook
 register_activation_hook( WPSWS_PLUGIN_FILE, array( 'WP_Simple_Web_Service', 'install' ) );
