@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: webservice, web service, JSON, REST
 Requires at least: 3.1
 Tested up to: 3.7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -44,6 +44,10 @@ Yes, you can. Simply add an action to wpsws_webservice_YOUR-WEB-SERVICE and repl
 Of course! Simply hook into 'wpsws_general_settings' and display your custom settings.
 
 == Changelog ==
+
+= 1.0.1 =
+* Added an install function that flushed rewrite rules
+* Changed the way the plugin is loaded, removed anonymous function
 
 = 1.0.0 =
 * Initial release
