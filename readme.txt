@@ -25,7 +25,7 @@ Please report issues and bugs at <a href='https://github.com/barrykooij/wp-simpl
 
 = Why do I get a 404 error when I try to call the web service URL? =
 
-For WP Simple Web Service to work you have to have your permalinks structure set <b>/%postname%/</b>, also make sure you .htaccess file is writable.
+For WP Simple Web Service to work you have to have your permalinks structure set to <b>/%postname%/</b>, also make sure you .htaccess file is writable.
 
 = What kind of web service call does this plugin provide? =
 
