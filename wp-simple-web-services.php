@@ -60,6 +60,16 @@ class WP_Simple_Web_Service {
 	}
 
 	/**
+	 * Function that runs on install
+	 */
+	public static function install() {
+
+		// Clear the permalinks
+		flush_rewrite_rules();
+
+	}
+
+	/**
 	 * Constructor
 	 */
 	private function __construct() {
@@ -164,3 +174,5 @@ function WP_Simple_Web_Service() {
 add_action( 'plugins_loaded', function () {
 	WP_Simple_Web_Service::get();
 } );
+
+register_activation_hook( WPSWS_PLUGIN_FILE, array( 'WP_Simple_Web_Service', 'install' ) );
