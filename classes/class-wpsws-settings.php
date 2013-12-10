@@ -52,7 +52,6 @@ class WPSWS_Settings {
 		else {
 			wp_enqueue_script( 'wpw-admin', plugin_dir_url( WPSWS_PLUGIN_FILE ) . '/assets/js/wpw-admin.orig.js', array( 'jquery' ), '1.0.0' );
 		}
-
 	}
 
 	/**
