@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: webservice, web service, JSON, REST
 Requires at least: 3.1
 Tested up to: 3.7.1
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,10 @@ Yes, it does.
 
 Yes, it does.
 
+= Can I modify the output of the 'get_posts' web service? =
+
+Yes, you can. WP Simple Web Service accepts all query vars you can pass to WP_Query, you can add them to the web service request by adding them in the qv GET variable. For example, limiting the result set to 10 results can be done by adding `&qv[posts_per_page]=10` to the request URL.
+
 = I am a developer, can I add my own web service calls to WP Simple Web Service ? =
 
 Yes, you can. Simply add an action to wpsws_webservice_YOUR-WEB-SERVICE and replace 'YOUR-WEB-SERVICE' with your own web service name. This webservice will now be called when you visit URL/webservice/YOUR-WEB-SERVICE/
@@ -48,6 +52,10 @@ Yes, you can. Simply add an action to wpsws_webservice_YOUR-WEB-SERVICE and repl
 Of course! Simply hook into 'wpsws_general_settings' and display your custom settings.
 
 == Changelog ==
+
+= 1.1.0 =
+* Added default WP_Query argument support to get_posts web service
+* Removed JS console log
 
 = 1.0.1 =
 * Added an install function that flushed rewrite rules
