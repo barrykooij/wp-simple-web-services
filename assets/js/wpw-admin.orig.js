@@ -36,7 +36,6 @@
 						custom     : $this.find('.wpw_custom:checked').wpw_vals()
 					},
 					function(response) {
-						console.log(response);
 					}
 			);
 		};
