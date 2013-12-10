@@ -247,13 +247,27 @@ class WPSWS_Webservice_get_posts {
 			WP_Simple_Web_Service::get()->throw_error( 'Post Type not supported.' );
 		}
 
-		// Get posts
-		$posts = get_posts( array(
-			'post_type'      => $post_type,
+		// Setup default query vars
+		$default_query_arguments = array(
 			'posts_per_page' => - 1,
 			'order'          => 'ASC',
 			'orderby'        => 'title',
-		) );
+		);
+
+		// Get query vars
+		$query_vars = array();
+		if ( isset( $_GET['qv'] ) ) {
+			$query_vars = $_GET['qv'];
+		}
+
+		// Merge query vars
+		$query_vars = wp_parse_args( $query_vars, $default_query_arguments );
+
+		// Set post type
+		$query_vars['post_type'] = $post_type;
+
+		// Get posts
+		$posts = get_posts( $query_vars );
 
 		// Post data to show - this will be manageble at some point
 		$show_post_data_fields = array( 'ID', 'post_title', 'post_content', 'post_date' );
@@ -282,7 +296,7 @@ class WPSWS_Webservice_get_posts {
 				}
 
 				// Set post field value
-				$data[$show_post_data_field] = $post_field_value;
+				$data[ $show_post_data_field ] = $post_field_value;
 			}
 
 			// Add post meta fields to data array
@@ -291,7 +305,7 @@ class WPSWS_Webservice_get_posts {
 				$meta_field_value = get_post_meta( $post->ID, $show_post_meta_data_field, true );
 
 				if ( $meta_field_value != '' ) {
-					$data[$show_post_meta_data_field] = $meta_field_value;
+					$data[ $show_post_meta_data_field ] = $meta_field_value;
 				}
 
 			}
