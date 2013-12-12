@@ -26,7 +26,7 @@ class WPSWS_Output {
 	}
 
 	/**
-	 * The correct way to ouput data in a webservice call
+	 * The correct way to output data in a webservice call
 	 *
 	 * @param $data
 	 */
