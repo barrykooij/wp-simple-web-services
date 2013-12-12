@@ -31,7 +31,8 @@ class WPSWS_Output {
 	 * @param $data
 	 */
 	public function output( $data ) {
+		$data = apply_filters( 'wpsws_output_data', $data );
 		echo json_encode( $data );
 	}
 
-} 
+}
