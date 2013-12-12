@@ -314,7 +314,7 @@ class WPSWS_Webservice_get_posts {
 
 		}
 
-		$return_data = apply_filters( 'wpsws_get_posts_data', $data, $post_type );
+		$return_data = apply_filters( 'wpsws_get_posts_data', $return_data, $post_type );
 
 		WPSWS_Output::get()->output( $return_data );
 	}
