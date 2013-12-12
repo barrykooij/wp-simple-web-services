@@ -33,10 +33,6 @@ if ( ! defined( 'WPSWS_PLUGIN_FILE' ) ) {
 	define( 'WPSWS_PLUGIN_FILE', __FILE__ );
 }
 
-/*
- * @todo
- * - Make it easy for webservice developers to create custom settings
- */
 class WP_Simple_Web_Service {
 
 	const WEBSERVICE_REWRITE = 'webservice/([a-zA-Z0-9_-]+)$';
