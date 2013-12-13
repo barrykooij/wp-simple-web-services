@@ -281,6 +281,7 @@ class WPSWS_Webservice_get_posts {
 		// Loop through posts
 		foreach ( $posts as $post ) {
 
+			// Get post customs
 			$post_custom = get_post_custom( $post->ID );
 
 			$data = array();
