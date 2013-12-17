@@ -53,6 +53,9 @@ Of course! Simply hook into 'wpsws_general_settings' and display your custom set
 
 == Changelog ==
 
+= FUTURE RELEASE =
+* Changed rewrite rules class file name
+
 = 1.1.0 =
 * Added default WP_Query argument support to get_posts web service
 * Removed JS console log
