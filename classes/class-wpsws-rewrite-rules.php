@@ -47,7 +47,7 @@ class WPSWS_Rewrite_Rules {
 
 		$rules = get_option( 'rewrite_rules' );
 
-		if ( ! isset( $rules[WP_Simple_Web_Service::WEBSERVICE_REWRITE] ) ) {
+		if ( ! isset( $rules[ WP_Simple_Web_Service::WEBSERVICE_REWRITE ] ) ) {
 			global $wp_rewrite;
 			$wp_rewrite->flush_rules();
 		}
