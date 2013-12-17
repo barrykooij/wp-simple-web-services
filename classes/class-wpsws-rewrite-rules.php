@@ -12,13 +12,11 @@ class WPSWS_Rewrite_Rules {
 	 * @return null|WPSWS_Rewrite_Rules
 	 */
 	public static function get() {
-
 		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
 		return self::$instance;
-
 	}
 
 	/**
@@ -41,14 +39,12 @@ class WPSWS_Rewrite_Rules {
 	 * Flush rules if they're not set yet
 	 */
 	public function flush_rules() {
-
 		$rules = get_option( 'rewrite_rules' );
 
 		if ( ! isset( $rules[ WP_Simple_Web_Service::WEBSERVICE_REWRITE ] ) ) {
 			global $wp_rewrite;
 			$wp_rewrite->flush_rules();
 		}
-
 	}
 
 	/**
@@ -59,12 +55,10 @@ class WPSWS_Rewrite_Rules {
 	 * @return array rules
 	 */
 	public function add_rewrite_rule( $rules ) {
-
-		$newrules                                            = array();
-		$newrules[WP_Simple_Web_Service::WEBSERVICE_REWRITE] = 'index.php?webservice=1&service=$matches[1]';
+		$newrules                                            		= array();
+		$newrules[ WP_Simple_Web_Service::WEBSERVICE_REWRITE ] 	= 'index.php?webservice=1&service=$matches[1]';
 
 		return $newrules + $rules;
-
 	}
 
 	/**
@@ -75,11 +69,9 @@ class WPSWS_Rewrite_Rules {
 	 * @return array query_vars
 	 */
 	public function add_query_vars( $vars ) {
-
 		array_push( $vars, 'webservice' );
 		array_push( $vars, 'service' );
 		return $vars;
-
 	}
 
 } 
