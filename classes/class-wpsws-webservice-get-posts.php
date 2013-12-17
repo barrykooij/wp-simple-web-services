@@ -13,7 +13,7 @@ class WPSWS_Webservice_get_posts {
 	 */
 	public static function get() {
 
-		if ( self::$instance == null ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 

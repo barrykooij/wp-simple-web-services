@@ -11,7 +11,7 @@ class WPSWS_Output {
 	 */
 	public static function get() {
 
-		if ( self::$instance == null ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
