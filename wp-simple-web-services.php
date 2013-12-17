@@ -83,7 +83,7 @@ class WP_Simple_Web_Service {
 	 */
 	private function includes() {
 
-		require_once( WPSWS_PLUGIN_DIR . 'classes/class-wpsws_rewrite_rules.php' );
+		require_once( WPSWS_PLUGIN_DIR . 'classes/class-wpsws-rewrite-rules.php' );
 		require_once( WPSWS_PLUGIN_DIR . 'classes/class-wpsws-webservice-get-posts.php' );
 
 		if ( is_admin() ) {
