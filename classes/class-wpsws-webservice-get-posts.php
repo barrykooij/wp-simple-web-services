@@ -142,20 +142,21 @@ class WPSWS_Webservice_get_posts {
 
 					// Custom fields
 					$custom_fields = array();
-					$dummy_post    = get_posts( array( 'post_type' => $key, 'posts_per_page' => 1 ) );
-					if ( is_array( $dummy_post ) && count( $dummy_post ) > 0 ) {
-						$dummy_post = array_shift( $dummy_post );
-
-						$post_custom_fields = get_post_custom( $dummy_post->ID );
-
-						if ( is_array( $post_custom_fields ) && count( $post_custom_fields ) > 0 ) {
-							foreach ( $post_custom_fields as $custom_field => $custom_value ) {
-								if ( substr( $custom_field, 0, 1 ) != '_' ) {
-									$custom_fields[$custom_field] = $custom_field;
-								}
+					global $wpdb;
+					$query = "SELECT DISTINCT({$wpdb->postmeta}.meta_key)
+        						FROM {$wpdb->posts}
+        						INNER JOIN {$wpdb->postmeta}
+        						ON {$wpdb->posts}.ID = {$wpdb->postmeta}.post_id
+        						WHERE {$wpdb->posts}.post_type = '%s'
+        						AND {$wpdb->postmeta}.meta_key != ''
+        						ORDER BY {$wpdb->postmeta}.meta_key ASC";
+					$db_meta_keys = $wpdb->get_col($wpdb->prepare($query, $key));
+					if ( is_array( $db_meta_keys ) && count( $db_meta_keys ) > 0 ) {
+						foreach ( $db_meta_keys as $custom_field ) {
+							if ( substr( $custom_field, 0, 1 ) != '_' ) {
+								$custom_fields[$custom_field] = $custom_field;
 							}
 						}
-
 					}
 
 					echo "<dt><a href=''>{$post_type->labels->name}</a></dt>\n";
@@ -184,7 +185,7 @@ class WPSWS_Webservice_get_posts {
 						echo "<label for='post_type_{$key}_field_{$post_type_field}'><input type='checkbox' name='custom[]' value='{$post_type_field}' class='wpw_custom' id='post_type_{$key}_field_{$post_type_field}' " . ( ( false !== array_search( $post_type_field, $pt_options['custom'] ) ) ? "checked='checked' " : "" ) . "/> {$post_type_label}</label><br/>\n";
 					}
 
-					echo submit_button( __( 'Save', 'wpw' ) );
+					echo get_submit_button( __( 'Save', 'wpw' ) );
 
 					echo "</dd>\n";
 
